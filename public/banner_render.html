@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ServEm - Neighbourhood-Services Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background-color: #060b12;
+      background-image: 
+        radial-gradient(circle at 50% 12%, rgba(16, 185, 129, 0.22), transparent 55%),
+        radial-gradient(circle at 10% 45%, rgba(15, 118, 110, 0.16), transparent 50%),
+        radial-gradient(circle at 90% 55%, rgba(16, 185, 129, 0.16), transparent 50%),
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 56px;
+    }
+
+    /* Brand Header */
+    .brand-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(13, 21, 37, 0.9);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      border-radius: 9999px;
+      padding: 8px 36px 8px 12px;
+      box-shadow: 0 0 40px rgba(16, 185, 129, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    }
+
+    .brand-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    .brand-name {
+      font-size: 44px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .brand-name span {
+      color: #10b981;
+    }
+
+    .brand-sub {
+      margin-top: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #34d399;
+      opacity: 0.95;
+    }
+
+    /* Devices Row: full-bleed balance with equal 40px margins on both sides */
+    .devices-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      width: 1840px;
+      margin: 0 auto;
+    }
+
+    /* Mobile Mockup (Left) */
+    .phone-container {
+      width: 380px;
+      height: 800px;
+      background: #090e17;
+      border: 11px solid #1e293b;
+      border-radius: 48px;
+      box-shadow: 
+        0 25px 60px -10px rgba(0, 0, 0, 0.9),
+        0 0 40px rgba(16, 185, 129, 0.22),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 115px;
+      height: 25px;
+      background: #000000;
+      border-radius: 13px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 12px;
+    }
+    .phone-notch-camera {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #111e2e;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .phone-screen {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    /* Desktop Web Mockup (Right) */
+    .web-container {
+      width: 1420px;
+      height: 800px;
+      background: #090e17;
+      border: 1px solid #334155;
+      border-radius: 20px;
+      box-shadow: 
+        0 25px 60px -10px rgba(0, 0, 0, 0.9),
+        0 0 40px rgba(16, 185, 129, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    .browser-header {
+      height: 46px;
+      background: #0d1522;
+      border-bottom: 1px solid #1e293b;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .browser-dots {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .browser-bar {
+      flex: 1;
+      max-width: 540px;
+      margin: 0 auto;
+      height: 30px;
+      background: #080d14;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: #94a3b8;
+    }
+
+    .browser-bar svg {
+      width: 13px;
+      height: 13px;
+      fill: #10b981;
+    }
+
+    .browser-body {
+      flex: 1;
+      width: 100%;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .browser-screen {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Brand Pill Header -->
+  <div class="brand-header">
+    <div class="brand-pill">
+      <img src="./assets/servem_favicon.png" alt="ServEm Logo" class="brand-logo">
+      <div class="brand-name">Serv<span>Em</span></div>
+    </div>
+    <div class="brand-sub">Flutter Mobile App &bull; React Web Platform</div>
+  </div>
+
+  <!-- Perfectly Centered Devices: 380px phone + 40px gap + 1420px web = 1840px with 40px equal side margins -->
+  <div class="devices-row">
+    <!-- Flutter Mobile (Left) -->
+    <div class="phone-container">
+      <div class="phone-notch">
+        <div class="phone-notch-camera"></div>
+      </div>
+      <img src="./assets/servem_mobile_home.jpg" alt="ServEm Flutter Mobile App" class="phone-screen">
+    </div>
+
+    <!-- React Desktop Web (Right) -->
+    <div class="web-container">
+      <div class="browser-header">
+        <div class="browser-dots">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+        </div>
+        <div class="browser-bar">
+          <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+          <span>https://servem-ph.web.app/</span>
+        </div>
+        <div style="width: 48px;"></div>
+      </div>
+      <div class="browser-body">
+        <img src="./assets/servem_web_balanced.jpg" alt="ServEm Web Platform" class="browser-screen">
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
