@@ -57,6 +57,8 @@ export interface ProjectItem {
   tags: string[];
   keyHighlights: { label: string; value: string }[];
   technicalFeatures: string[];
+  resumeBulletPoints?: string[];
+  resumeTechStack?: string;
   liveUrl?: string;
   githubUrl?: string;
   featured: boolean;

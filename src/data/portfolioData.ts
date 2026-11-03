@@ -18,7 +18,7 @@ export const profileData: ProfileData = {
   fullNameFormal: 'Nexon Jr. Y. Sabañao',
   degree: 'Bachelor of Science in Information Technology',
   executiveHeadline:
-    'Detail-oriented Information Technology graduate with hands-on experience in full-stack web applications (React, TypeScript, Tailwind CSS), mobile development (Flutter & Android Kotlin), embedded IoT systems (ESP32, C++), and operational data management. Adaptable, quick to learn, and eager to contribute to technical and software engineering roles.',
+    'BS Information Technology graduate with hands-on experience developing full-stack web applications (React, TypeScript), mobile apps (Flutter, Android Kotlin), embedded IoT systems (ESP32, C++), and operational data management in Excel. Adaptable, fast learner, and eager to contribute to software development and technical IT roles.',
   email: 'nexonjrsabanao@gmail.com',
   phone: '+639167306105',
   location: 'Trece Martires, Cavite, Philippines 4109',
@@ -30,13 +30,10 @@ export const profileData: ProfileData = {
   education: {
     degree: 'Bachelor of Science in Information Technology',
     institution: 'Cavite State University',
-    graduationDate: 'Graduated July 2026',
+    graduationDate: 'Graduated August 2026',
     location: 'Cavite, Philippines',
     highlights: [
-      'Developed ServEm on-demand service marketplace (Flutter mobile app & React TypeScript web platform)',
-      'Developed native Android fitness app (Nutriority) with Kotlin and Firebase Firestore',
-      'Engineered Barangay Weather & Flood Alert IoT system with LilyGO TTGO T-SIM & C++',
-      'Focus in Full-Stack Web, Flutter Mobile, Python Scripting, and Embedded Systems',
+      'Hands-on technical capstone development across full-stack web, cross-platform mobile, and IoT hardware',
     ],
   },
   targetRoles: [
@@ -285,6 +282,11 @@ export const projects: ProjectItem[] = [
       'Built Android mobile application using Flutter with responsive layouts and state management',
       'Built responsive user interface using React, TypeScript, and Tailwind CSS',
     ],
+    resumeTechStack: 'Flutter · React · TypeScript · Tailwind CSS',
+    resumeBulletPoints: [
+      'Engineered an on-demand services marketplace with dual-role architecture (customer booking & provider skill listing).',
+      'Implemented category search, appointment booking workflows, provider profiles, and responsive modern UI.',
+    ],
     roleWorkflow: [
       {
         role: 'Customer',
@@ -339,6 +341,11 @@ export const projects: ProjectItem[] = [
       'Custom XML layouts following clean mobile design guidelines',
       'API-based exercise data ingestion and planner logic',
     ],
+    resumeTechStack: 'Kotlin · Android Studio · Firebase Firestore · XML Layouts',
+    resumeBulletPoints: [
+      'Developed native Android fitness app using Kotlin and Android Studio with MVVM architecture and Material XML layouts.',
+      'Integrated Firebase Firestore for real-time authentication and cloud synchronization of workout routines and nutrition logs.',
+    ],
     liveUrl: 'https://nutriority.github.io/Installer',
     githubUrl: 'https://github.com/nexonsabanao/Nutriority',
     featured: true,
@@ -367,6 +374,11 @@ export const projects: ProjectItem[] = [
       'Clean web interface built with HTML and CSS for real-time telemetry viewing',
       'Automated weather forecast and alert evaluation logic',
     ],
+    resumeTechStack: 'Embedded C++ · LilyGO TTGO T-SIM · ESP32 · HTML / CSS',
+    resumeBulletPoints: [
+      'Engineered embedded C++ firmware for LilyGO TTGO T-SIM / ESP32 reading water level sensors and dispatching emergency GSM SMS alerts.',
+      'Developed a responsive web monitoring interface using HTML/CSS for real-time environmental telemetry observation.',
+    ],
     liveUrl: 'https://weather-project-a5fb5.web.app/',
     githubUrl: 'https://github.com/nexonsabanao/Briane',
     featured: true,
@@ -386,11 +398,9 @@ export const workExperience: ExperienceItem[] = [
     summary:
       'Provided administrative support, operational data management, and emergency response coordination for the municipal disaster risk reduction agency.',
     responsibilities: [
-      'Assisted in disaster preparedness and response operations',
-      'Coordinated with team members during emergency drills and activities',
-      'Maintained records and reports of incidents and operations',
-      'Supported staff in organizing files and preparing documents',
-      'Managed data using Microsoft Excel',
+      'Structured and managed operational disaster records, incident logs, and reporting databases using Microsoft Excel.',
+      'Coordinated with emergency response personnel and staff during municipal preparedness drills and operations.',
+      'Supported administrative documentation, file archiving, and inter-agency disaster preparedness reports.',
     ],
     toolsUsed: [
       'Microsoft Excel',
@@ -431,3 +441,4 @@ export const accessibilityReportData = {
     },
   ],
 };
+  

@@ -69,11 +69,21 @@ select:focus-visible {
   scrollbar-color: #334155 transparent;
 }
 
-/* Print / ATS-friendly printable mode */
+/* Print / ATS-friendly printable mode (1-Page A4) */
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
 @media print {
-  body {
+  html, body {
+    margin: 0 !important;
+    padding: 10mm 14mm !important;
     background: #ffffff !important;
-    color: #000000 !important;
+    color: #0f172a !important;
+    font-size: 9.3pt !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
   .no-print {
     display: none !important;
@@ -82,10 +92,7 @@ select:focus-visible {
     display: block !important;
   }
   a {
-    text-decoration: underline !important;
-    color: #000000 !important;
-  }
-  .page-break {
-    page-break-before: always;
+    color: inherit !important;
+    text-decoration: none !important;
   }
 }

@@ -52,51 +52,50 @@ export function generateAtsPlainTextResume(
   // Summary
   sections.push(`SUMMARY\n${profile.executiveHeadline}`);
 
-  // Education
-  sections.push(
-    `EDUCATION\n` +
-      `${profile.education.institution}\n` +
-      `${profile.education.degree}\n` +
-      `${profile.education.graduationDate}\n` +
-      profile.education.highlights.map((h) => `• ${h}`).join('\n')
-  );
-
-  // Experience
-  const experienceText = experience
-    .map(
-      (job) =>
-        `${job.role} – ${job.company}\n` +
-        `${job.location}\n` +
-        `${job.startDate} - ${job.endDate}\n` +
-        job.responsibilities.map((r) => `• ${r}`).join('\n')
-    )
-    .join('\n\n');
-  sections.push(`EXPERIENCE\n${experienceText}`);
-
   // Skills
   sections.push(
     `SKILLS\n` +
-      `• Web & Full-Stack: TypeScript, JavaScript, React, Tailwind CSS, HTML5, CSS3, Vite, REST APIs\n` +
-      `• Programming & Backend: Dart, Python (Intermediate), C++, Java, Kotlin, Algorithm Logic\n` +
-      `• Mobile & Cloud: Flutter, Android Studio (Kotlin, XML Layouts), Firebase Firestore & Realtime DB\n` +
+      `• Languages & Web: TypeScript, JavaScript, React, Tailwind CSS, Python, C++, Java, HTML5, CSS3, REST APIs, Vite\n` +
+      `• Mobile & Cloud: Flutter, Dart, Kotlin, Android Studio (XML Layouts), Firebase Firestore\n` +
       `• Hardware & IoT: ESP32, Arduino (LilyGO TTGO T-SIM), STM32, Embedded C++, GSM Telemetry\n` +
-      `• Office & Data: Microsoft Excel (Data Management, Structuring & Reporting), Word, PowerPoint\n` +
-      `• Design & Tools: Git, GitHub, Adobe (Photoshop, Illustrator, Animate), Canva`
+      `• Productivity & Tools: Git, GitHub, Microsoft Excel (Data Management & Reporting), Word, Canva`
   );
+
+  // Work Experience
+  const experienceText = experience
+    .map(
+      (job) =>
+        `${job.role} – ${job.company} (${job.startDate} - ${job.endDate})\n` +
+        `${job.location}\n` +
+        job.responsibilities.map((r) => `• ${r}`).join('\n')
+    )
+    .join('\n\n');
+  sections.push(`WORK EXPERIENCE\n${experienceText}`);
 
   // Projects
   const projectsText = projectsList
     .map((p) => {
       const liveOrRepo = p.liveUrl || p.githubUrl || '';
       const linkStr = liveOrRepo ? ` (${liveOrRepo})` : '';
+      const bullets = p.resumeBulletPoints ?? p.technicalFeatures;
       const lines = [`• ${p.resumeTitle ?? p.title}${linkStr}`];
-      p.technicalFeatures.forEach((feat) => {
+      if (p.resumeTechStack) {
+        lines.push(`  Stack: ${p.resumeTechStack}`);
+      }
+      bullets.forEach((feat) => {
         lines.push(`  - ${feat}`);
       });
       return lines.join('\n');
     })
     .join('\n\n');
   sections.push(`PROJECTS\n${projectsText}`);
+
+  // Education
+  sections.push(
+    `EDUCATION\n` +
+      `${profile.education.institution} – ${profile.education.degree} (${profile.education.graduationDate})` +
+      (profile.education.location ? `\nLocation: ${profile.education.location}` : '')
+  );
 
   return sections.join('\n\n');
 }
